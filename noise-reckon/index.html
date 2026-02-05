@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NoiseReckon Demo</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <h1>NoiseReckon</h1>
+        <nav>
+            <a href="../index.html">Home</a> |
+            <a href="../projects.html">Projects</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="controls">
+            <label>Sensor Count: <span id="sensorValue">50</span></label>
+            <input type="range" id="sensorSlider" min="0" max="2" step="1" value="0">
+
+            <label>Noise Level: <span id="noiseValue">0.1</span></label>
+            <input type="range" id="noiseSlider" min="0" max="2" step="1" value="0">
+
+            <label>Block Size: <span id="blockValue">1</span></label>
+            <input type="range" id="blockSlider" min="0" max="4" step="1" value="0">
+        </section>
+
+        <section class="image-container">
+            <img id="outputImage" src="images/sensors_50_noise_0_block_size_1_comparison.png" alt="Output">
+        </section>
+    </main>
+
+    <script>
+        //arrays
+        const sensors = [50, 100, 250];
+        const noises = [0.1, 1, 2];
+        const blocks = [1, 3, 5, 7, 10];
+
+        const sensorSlider = document.getElementById('sensorSlider');
+        const noiseSlider = document.getElementById('noiseSlider');
+        const blockSlider = document.getElementById('blockSlider');
+
+        const sensorValue = document.getElementById('sensorValue');
+        const noiseValue = document.getElementById('noiseValue');
+        const blockValue = document.getElementById('blockValue');
+
+        const outputImage = document.getElementById('outputImage');
+
+        function updateImage() {
+            const sensor = sensors[sensorSlider.value];
+            const noise = noises[noiseSlider.value];
+            const block = blocks[blockSlider.value];
+
+            // slider
+            sensorValue.textContent = sensor;
+            noiseValue.textContent = noise;
+            blockValue.textContent = block;
+
+            const noiseInt = Math.floor(noise);
+            const fileName = `images/sensors_${sensor}_noise_${noiseInt}_block_size_${block}_comparison.png`;
+
+            outputImage.src = fileName;
+        }
+
+        // listeners
+        sensorSlider.addEventListener('input', updateImage);
+        noiseSlider.addEventListener('input', updateImage);
+        blockSlider.addEventListener('input', updateImage);
+    </script>
+</body>
+</html>

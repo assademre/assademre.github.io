@@ -1,0 +1,67 @@
+/* nice base background */
+body {
+    background: linear-gradient(135deg, #1e1e2f, #2a2a3f);
+    color: #eee;
+    text-align: center;
+}
+
+/* card panel for your content */
+main {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+    max-width: 1400px;
+}
+
+/* header spice */
+header {
+    background: #111;
+    border-bottom: 2px solid #444;
+}
+
+/* controls area */
+.controls {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.controls label {
+    font-weight: bold;
+    color: #ddd;
+}
+
+/* nicer image container */
+.image-container {
+    width: auto;
+    height: 10cm;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    border: 2px solid #444;
+    overflow: visible; 
+}
+
+/* scaled image with border + shadow */
+.image-container img {
+    width: auto;
+    height: auto;
+    transform: scale(3);
+    transform-origin: center center;
+    image-rendering: pixelated;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    border: 3px solid #222;
+}
+
+.image-container:hover img {
+    transform: scale(4);
+    transition: transform 0.3s ease;
+}
+
